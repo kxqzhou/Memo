@@ -7,8 +7,8 @@ var InfoLayer = cc.Layer.extend({
 		this._super();
 		
 		// ------------ init ------------
-        this.mode = mode;
-        this.seqLength = len;
+		this.mode = mode;
+		this.seqLength = len;
 
 		// window size, director can't be accessed outside cc.Layer for some reason
 		var winSize = cc.director.getWinSize();
