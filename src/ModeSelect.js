@@ -24,13 +24,13 @@ var ModeSelectLayer = cc.Layer.extend({
 
 		var colorLabel = new cc.LabelBMFont("Colors", res.arial_32_fnt, winSize.width, cc.TEXT_ALIGNMENT_CENTER);
 		var colorChoice = new cc.MenuItemLabel( colorLabel, this.onModeSelect, this );
-			colorChoice.x = winSize.width / 2;
+		colorChoice.x = winSize.width / 2;
 		colorChoice.y = winSize.height / 10 * 6;
 
 		var tempLabel = new cc.LabelBMFont("Coming soon", res.arial_32_fnt, winSize.width, cc.TEXT_ALIGNMENT_CENTER);
 		var tempMessage = new cc.MenuItemLabel( tempLabel );
 		// it seems the selector and target are optional? or have defaults
-			tempMessage.x = winSize.width / 2;
+		tempMessage.x = winSize.width / 2;
 		tempMessage.y = winSize.height / 10 * 4;
 		tempMessage.setColor( cc.color(100, 100, 100) );
 
