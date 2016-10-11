@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Memo</title>
+	<script type="text/javascript" src="cocos2d-js-v3.11.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/Resource.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/MainMenu.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/Settings.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/Difficulty.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/ModeSelect.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/Info.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/ShowSequence.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/GuessPhase.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/GameEnd.js" charset="UTF-8"></script>
+</head>
+<body>
+
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '267223866977214',
+	      xfbml      : true,
+	      version    : 'v2.6'
+	    });
+
+	    // ADD ADDITIONAL FACEBOOK CODE HERE
+		function onLogin(response) {
+		  if (response.status == 'connected') {
+		    FB.api('/me?fields=first_name', function(data) {
+		      var welcomeBlock = document.getElementById('fb-welcome');
+		      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+		    });
+		  }
+		}
+
+	    FB.getLoginStatus(function(response) {
+		  // Check login status on load, and if the user is
+		  // already logged in, go directly to the welcome message.
+		  if (response.status == 'connected') {
+		    onLogin(response);
+		  } else {
+		    // Otherwise, show Login dialog first.
+		    FB.login(function(response) {
+		      onLogin(response);
+		    }, {scope: 'user_friends, email'});
+		  }
+		});
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<canvas id="gameCanvas" width="800" height="450"></canvas>
+	<script type="text/javascript">
+		window.onload = function () {
+			cc.game.onStart = function () {
+				//display settings
+				cc.view.adjustViewPort(true); // v3x api claims this enabled by default, so is this necessary?
+				cc.view.setDesignResolutionSize(480, 720, cc.ResolutionPolicy.SHOW_ALL);
+				cc.view.resizeWithBrowserSize(true);
+				
+				//load resources
+				cc.LoaderScene.preload( g_all, function () {
+					cc.director.runScene( new MainMenuScene() );
+				}, this );
+			};
+			cc.game.run("gameCanvas");
+		}
+	</script>
+</body>
+</html>
+
