@@ -18,25 +18,25 @@ var DifficultyLayer = cc.Layer.extend({
 		titleText.y = winSize.height / 5 * 4;
 		this.addChild( titleText, 2 );
 
-		var easyLabel = new cc.LabelBMFont("Unlikely", res.arial_32_fnt, winSize.width, cc.TEXT_ALIGNMENT_CENTER);
+		var easyLabel = new cc.LabelBMFont("Unlikely (10)", res.arial_32_fnt, winSize.width, cc.TEXT_ALIGNMENT_CENTER);
 		var easyButton = new cc.MenuItemLabel( easyLabel, this.onDifficultyPress, this );
 		easyButton.x = winSize.width / 2;
 		easyButton.y = winSize.height / 10 * 6;
 		easyButton.tag = 1;
 
-		var mediumLabel = new cc.LabelBMFont("Improbable", res.arial_32_fnt, winSize.width, cc.TEXT_ALIGNMENT_CENTER);
+		var mediumLabel = new cc.LabelBMFont("Improbable (15)", res.arial_32_fnt, winSize.width, cc.TEXT_ALIGNMENT_CENTER);
 		var mediumButton = new cc.MenuItemLabel( mediumLabel, this.onDifficultyPress, this );
 		mediumButton.x = winSize.width / 2;
 		mediumButton.y = winSize.height / 2;
 		mediumButton.tag = 2;
 
-		var hardLabel = new cc.LabelBMFont("Ridiculous", res.arial_32_fnt, winSize.width, cc.TEXT_ALIGNMENT_CENTER);
+		var hardLabel = new cc.LabelBMFont("Ridiculous (20)", res.arial_32_fnt, winSize.width, cc.TEXT_ALIGNMENT_CENTER);
 		var hardButton = new cc.MenuItemLabel( hardLabel, this.onDifficultyPress, this );
 		hardButton.x = winSize.width / 2;
 		hardButton.y = winSize.height / 10 * 4;
 		hardButton.tag = 3;
 
-		var extremeLabel = new cc.LabelBMFont("Absurd", res.arial_32_fnt, winSize.width, cc.TEXT_ALIGNMENT_CENTER);
+		var extremeLabel = new cc.LabelBMFont("Absurd (25)", res.arial_32_fnt, winSize.width, cc.TEXT_ALIGNMENT_CENTER);
 		var extremeButton = new cc.MenuItemLabel( extremeLabel, this.onDifficultyPress, this );
 		extremeButton.x = winSize.width / 2;
 		extremeButton.y = winSize.height / 10 * 3;
